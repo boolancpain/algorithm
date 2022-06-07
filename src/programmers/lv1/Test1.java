@@ -7,8 +7,8 @@ import java.util.Map;
 
 /**
  * lv1. 신고 결과 받기
- * @see https://programmers.co.kr/learn/courses/30/lessons/92334
  * 
+ * @see https://programmers.co.kr/learn/courses/30/lessons/92334
  * @author boolancpain
  */
 public class Test1 {
@@ -61,7 +61,7 @@ public class Test1 {
 				// k보다 많이 신고 된 유저에게 메일 발송
 				if(!reporters.isEmpty() && reporters.size() >= k) {
 					for(String reporter : reporters) {
-						results.get(reporter).addMainCount();
+						results.get(reporter).addMailCount();
 					}
 				}
 			}
@@ -94,7 +94,7 @@ public class Test1 {
 		public void setMailCount(int mailCount) {
 			this.mailCount = mailCount;
 		}
-		public void addMainCount() {
+		public void addMailCount() {
 			this.mailCount++;
 		}
 	}
