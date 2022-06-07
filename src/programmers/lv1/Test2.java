@@ -1,10 +1,5 @@
 package programmers.lv1;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.stream.Collectors;
-
 /**
  * lv1. 신규 아이디 추천
  * 
@@ -44,11 +39,6 @@ public class Test2 {
 		expect = "abcdefghijklmn";
 		result = solution.solution(id);
 		System.out.println(String.format("테스트 케이스 5 expect : %s, result : %s : %s", expect, result, (expect.equals(result) ? "통과" : "실패")));
-		
-		id = "~!@#$%^&*()=+[{]}:?,<>/";
-		expect = "aaa";
-		result = solution.solution(id);
-		System.out.println(String.format("테스트 케이스 5 expect : %s, result : %s : %s", expect, result, (expect.equals(result) ? "통과" : "실패")));
 	}
 	
 	static class Solution {
@@ -58,13 +48,13 @@ public class Test2 {
 			answer = new_id.toLowerCase();
 			
 			// 2단계 new_id에서 알파벳 소문자, 숫자, 빼기(-), 밑줄(_), 마침표(.)를 제외한 모든 문자를 제거합니다.
-			answer = answer.replaceAll("[~!@#$%^&*()=+[{]}:?,<>/]", "");
+			answer = answer.replaceAll("[~!@#$%\\^&*\\(\\)=+\\{\\}:?,<>/\\[\\]]", "");
 			
 			// 3단계 new_id에서 마침표(.)가 2번 이상 연속된 부분을 하나의 마침표(.)로 치환합니다.
 			StringBuilder sb = new StringBuilder();
 			char prevCharacter = 0;
 			for(char character : answer.toCharArray()) {
-				if(prevCharacter == 46 && prevCharacter == character) continue;
+				if(prevCharacter == '.' && prevCharacter == character) continue;
 				
 				// add
 				sb.append(character);
@@ -79,12 +69,7 @@ public class Test2 {
 			
 			// 5단계 new_id가 빈 문자열이라면, new_id에 "a"를 대입합니다.
 			if(answer == null || answer.isEmpty()) {
-				sb = new StringBuilder();
-				for(int i = 0;i < new_id.length();i++) {
-					sb.append("a");
-				}
-				
-				answer = sb.toString();
+				answer = "a";
 			}
 			
 			// 6단계 new_id의 길이가 16자 이상이면, new_id의 첫 15개의 문자를 제외한 나머지 문자들을 모두 제거합니다.
