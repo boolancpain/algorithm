@@ -21,64 +21,100 @@ public class Test1 {
 		expect = 9;
 		result = solution.solution(s);
 		System.out.println(String.format("테스트 케이스 2 expect : %s, result : %s : %s", expect, result, expect == result ? "통과" : "실패"));
-		/*
-		*/
+		
+		// test case 3
+		s = "abcabcdede";
+		expect = 8;
+		result = solution.solution(s);
+		System.out.println(String.format("테스트 케이스 3 expect : %s, result : %s : %s", expect, result, expect == result ? "통과" : "실패"));
+		
+		// test case 4
+		s = "abcabcabcabcdededededede";
+		expect = 14;
+		result = solution.solution(s);
+		System.out.println(String.format("테스트 케이스 4 expect : %s, result : %s : %s", expect, result, expect == result ? "통과" : "실패"));
+		
+		// test case 5
+		s = "xababcdcdababcdcd";
+		expect = 17;
+		result = solution.solution(s);
+		System.out.println(String.format("테스트 케이스 5 expect : %s, result : %s : %s", expect, result, expect == result ? "통과" : "실패"));
 	}
 	
 	static class Solution {
 		public int solution(String s) {
-			// 3자 보다 작은 경우는 문자열 길이를 그대로 리턴
-			if(s.length() < 3) {
+			// 2글자 이하인 경우는 문자열 길이를 그대로 리턴(압축하더라도 문자열 길이보다 작을 수 없음)
+			if(s.length() <= 2) {
 				return s.length();
 			}
 			
-			// 1. 압축할 때 입력값의 절반을 넘는 크기의 압축은 존재하지 않는다.
+			// 1. 압축할 때 입력값의 절반을 넘는 크기의 압축은 불가능
 			int len = s.length();
-			int compressibility = Math.round(len / 2);
+			int maxCompress = len / 2;
 			
-			String result = s;
+			int answer = s.length();
 			
-			// 2. 입력값의 절반 크기까지 순회하며 압축 테스트
-			for(int i = 1;i <= compressibility;i++) {
-				StringBuilder sb = new StringBuilder();
+			// 2. 압축 테스트
+			for(int i = 1;i <= maxCompress;i++) {
+				String sb = compress(s, i);
 				
-				int j = 0;
-				int max = len - i;
+				// 최소 길이 문자열
+				// 압축된 최소 문자열 길이는 2
+				if(sb.length() == 2) {
+					return sb.length();
+				}
 				
-				while(j < max) {
-					// 탐색 토큰
-					String token = s.substring(j, j + i);
-					
-					int start = j + i;
-					int cnt = 1;
-					
-					while(token.equals(s.substring(start, start + i))) {
-						// 탐색 회수 증가
+				answer = answer > sb.length() ? sb.length() : answer;
+			}
+			
+			return answer;
+		}
+		
+		public String compress(String s, int compressibility) {
+			StringBuilder sb = new StringBuilder();
+			
+			int start = 0;
+			int end = compressibility;
+			
+			int cnt = 1;
+			String prevToken = null;
+			
+			while(end <= s.length()) {
+				String token = s.substring(start, end);
+				
+				// 이전 토큰 저장
+				if(prevToken == null) {
+					prevToken = token;
+				} else {
+					// 토큰이 같은 경우 카운트 증가
+					if(token.equals(prevToken)) {
 						cnt++;
-						// 탐색 인덱스 증가
-						start += i;
-						
-						if(start + i >= max)
-							break;
-					}
-					
-					if(cnt <= 1) {
-						sb.append(s.substring(j, j + 1));
-						j++;
 					} else {
-						sb.append(cnt);
-						sb.append(token);
-						j = j + (i * cnt);
+						if(cnt > 1) {
+							sb.append(cnt);
+							cnt = 1;
+						}
+						sb.append(prevToken);
+						prevToken = token;
 					}
 				}
 				
-				// 최소 길이
-				result = result.length() > sb.length() ? sb.toString() : result;
+				// 더 잘라낼 수 있는 토큰이 존재하는 경우 탐색 범위 변경
+				if(end + compressibility <= s.length()) {
+					start = end;
+					end = start + compressibility;
+				} else {
+					// 더이상 잘라낼 토큰이 없다면 이전 토큰과 나머지 문자열을 추가하고 종료
+					if(cnt > 1) {
+						sb.append(cnt);
+					}
+					sb.append(prevToken);
+					sb.append(s.substring(end));
+					break;
+				}
 			}
 			
-			System.out.println("\t" + s);
-			System.out.println("\t" + result);
-			return result.length();
+			return sb.toString();
 		}
 	}
 }
