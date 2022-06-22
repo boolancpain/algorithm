@@ -4,7 +4,7 @@ import java.util.LinkedList;
 import java.util.Queue;
 
 /**
- * 타겟 넘버
+ * lv2. 타겟 넘버
  * 
  * @see https://programmers.co.kr/learn/courses/30/lessons/43165
  * @author boolancpain
