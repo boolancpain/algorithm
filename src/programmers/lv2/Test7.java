@@ -26,14 +26,14 @@ public class Test7 {
 		System.out.println(String.format("[테스트 케이스 2] : %s", Arrays.equals(expect, result) ? "통과" : "실패"));
 		
 		n = 9;
-		info = new int[] {0,0,1,2,0,1,1,1,1,1,1};
-		expect = new int[] {1,1,2,0,1,2,2,0,0,0,0};
+		info = new int[] {0, 0, 1, 2, 0, 1, 1, 1, 1, 1, 1};
+		expect = new int[] {1, 1, 2, 0, 1, 2, 2, 0, 0, 0, 0};
 		result = solution.solution(n, info);
 		System.out.println(String.format("[테스트 케이스 3] : %s", Arrays.equals(expect, result) ? "통과" : "실패"));
 		
 		n = 10;
-		info = new int[] {0,0,0,0,0,0,0,0,3,4,3};
-		expect = new int[] {1,1,1,1,1,1,1,1,0,0,2};
+		info = new int[] {0, 0, 0, 0, 0, 0, 0, 0, 3, 4, 3};
+		expect = new int[] {1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 2};
 		result = solution.solution(n, info);
 		System.out.println(String.format("[테스트 케이스 4] : %s", Arrays.equals(expect, result) ? "통과" : "실패"));
 	}
