@@ -43,8 +43,4 @@ public class Test2579 {
 			e.printStackTrace();
 		}
 	}
-	
-	public static void climb(int n) {
-		
-	}
 }
