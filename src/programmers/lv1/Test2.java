@@ -1,7 +1,7 @@
 package programmers.lv1;
 
 /**
- * lv1. 신규 아이디 추천
+ * lv.1 신규 아이디 추천
  * 
  * @see https://programmers.co.kr/learn/courses/30/lessons/72410
  * @author boolancpain

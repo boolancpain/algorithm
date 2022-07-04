@@ -6,7 +6,7 @@ import java.util.HashSet;
 import java.util.Map;
 
 /**
- * lv1. 신고 결과 받기
+ * lv.1 신고 결과 받기
  * 
  * @see https://programmers.co.kr/learn/courses/30/lessons/92334
  * @author boolancpain

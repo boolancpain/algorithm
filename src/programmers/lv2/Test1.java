@@ -1,7 +1,7 @@
 package programmers.lv2;
 
 /**
- * lv2. 문자열 압축
+ * lv.2 문자열 압축
  * 
  * @see https://programmers.co.kr/learn/courses/30/lessons/60057
  * @author boolancpain

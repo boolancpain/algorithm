@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 /**
- * lv2. 양궁대회
+ * lv.2 양궁대회
  * 
  * @see https://programmers.co.kr/learn/courses/30/lessons/92342
  * @author boolancpain

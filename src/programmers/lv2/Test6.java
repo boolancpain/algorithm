@@ -6,7 +6,7 @@ import java.util.Arrays;
 import java.util.HashMap;
 
 /**
- * lv2. 주차 요금 계산
+ * lv.2 주차 요금 계산
  * 
  * @see https://programmers.co.kr/learn/courses/30/lessons/92341
  * @author boolancpain

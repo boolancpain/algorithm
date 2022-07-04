@@ -5,7 +5,7 @@ import java.util.Arrays;
 import java.util.HashMap;
 
 /**
- * lv2. 오픈 채팅방
+ * lv.2 오픈 채팅방
  * 
  * @see https://programmers.co.kr/learn/courses/30/lessons/42888
  * @author boolancpain

@@ -3,7 +3,7 @@ package programmers.lv1;
 import java.util.Stack;
 
 /**
- * lv1. 크레인 인형뽑기 게임
+ * lv.1 크레인 인형뽑기 게임
  * 
  * @see https://programmers.co.kr/learn/courses/30/lessons/64061
  * @author boolancpain

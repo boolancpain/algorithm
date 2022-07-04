@@ -6,7 +6,7 @@ import java.util.Collections;
 import java.util.HashMap;
 
 /**
- * lv2. 메뉴 리뉴얼
+ * lv.2 메뉴 리뉴얼
  * 
  * @see https://programmers.co.kr/learn/courses/30/lessons/72411
  * @author boolancpain
