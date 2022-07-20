@@ -20,6 +20,7 @@ public class Test1439 {
 			StringTokenizer zeroTokenizer = new StringTokenizer(s, "0");
 			StringTokenizer oneTokenizer = new StringTokenizer(s, "1");
 			
+			// 각 토큰을 0과 1로 잘라서 토큰의 개수가 적은것을 바꾸는게 최소값이다.
 			System.out.println(Math.min(zeroTokenizer.countTokens(), oneTokenizer.countTokens()));
 		} catch (Exception e) {
 			e.printStackTrace();
