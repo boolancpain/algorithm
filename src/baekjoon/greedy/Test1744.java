@@ -74,7 +74,7 @@ public class Test1744 {
 			// 음수가 홀수개이고, 0이 존재하지 않는다면 더한다.
 			// 0이 존재하면 음수와 0을 곱해 0으로 처리함
 			if(negatives.size() % 2 > 0 && zeroCount == 0) {
-				result += temp;
+				result += negatives.get(negatives.size() - 1);
 			}
 			
 			System.out.println(result);
