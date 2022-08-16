@@ -31,7 +31,7 @@ public class Test1049 {
 		int result = 0;
 		
 		if(minPackage < minOne * 6) {
-			// 낱개의 6개 가격보다 패키지가 가격이 낮은 경우
+			// 낱개로 6개의 가격보다 패키지가 가격이 낮은 경우
 			if((n % 6) * minOne > minPackage) {
 				// 패키지로 구매하고 남은 기타줄을 낱개로 구매하는것보다 패키지로 구매하는게 가격이 낮은 경우 패키지를 한개 더 구매
 				result = ((n / 6) + 1) * minPackage;
