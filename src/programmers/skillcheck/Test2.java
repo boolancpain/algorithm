@@ -1,4 +1,4 @@
-package programmers.lv1;
+package programmers.skillcheck;
 
 import java.util.Arrays;
 
@@ -8,7 +8,7 @@ import java.util.Arrays;
  * @see https://programmers.co.kr/skill_checks/398726?challenge_id=2550
  * @author boolancpain
  */
-public class Test5 {
+public class Test2 {
 	public static void main(String[] args) {
 		Solution solution = new Solution();
 		
