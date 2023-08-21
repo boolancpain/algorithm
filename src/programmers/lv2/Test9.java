@@ -46,7 +46,7 @@ public class Test9 {
 					if(index >= minerals.length) break;
 					
 					// 피로도는 돌 곡괭이를 기준으로 계산
-					switch(minerals[j]) {
+					switch(minerals[index]) {
 					case "diamond":
 						mineralGroups[i][j] = 25;
 						break;
