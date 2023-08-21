@@ -30,27 +30,32 @@ public class Test9 {
 			int answer = 0;
 			
 			// 전체 곡괭이 개수
-			int gok = picks[0] + picks[1] + picks[2];
+			int pickCnt = picks[0] + picks[1] + picks[2];
+			
 			// 5개씩 나눈 미네랄들의 배열 사이즈
-			int size = minerals.length / 5 + (minerals.length % 5 == 0 ? 0 : 1);
+			int size = minerals.length / 5 + Math.min(minerals.length % 5, 1);
 			// 미네랄 그룹
 			int[][] mineralGroups = new int[size][5];
 			for(int i = 0;i < size;i++) {
 				// 곡괭이 개수보다 미네랄이 많으면 나머지 미네랄은 제외함
-				if(gok == 0) break;
-				gok--;
+				if(pickCnt == 0) break;
+				pickCnt--;
+				
 				for(int j = 0;j < 5;j++) {
-					int idx = i * 5 + j;
-					if(idx >= minerals.length) break;
-					String mineral = minerals[i * 5 + j];
-					int cost = 0;
+					int index = i * 5 + j;
+					if(index >= minerals.length) break;
+					
 					// 피로도는 돌 곡괭이를 기준으로 계산
-					switch(mineral) {
-					case "diamond":	cost = 25; break;
-					case "iron" :	cost = 5; break;
-					default: cost = 1;
+					switch(minerals[j]) {
+					case "diamond":
+						mineralGroups[i][j] = 25;
+						break;
+					case "iron" :
+						mineralGroups[i][j] = 5;
+						break;
+					default:
+						mineralGroups[i][j] = 1;
 					}
-					mineralGroups[i][j] = cost;
 				}
 			}
 			
@@ -63,14 +68,15 @@ public class Test9 {
 				int pick = 0;
 				if(picks[0] > 0) {
 					pick = 25;
-					picks[0] -= 1;
+					picks[0]--;
 				} else if(picks[1] > 0) {
 					pick = 5;
-					picks[1] -= 1;
+					picks[1]--;
 				} else {
 					pick = 1;
-					picks[2] -= 1;
+					picks[2]--;
 				}
+				
 				int cost = 0;
 				for(int j = 0;j < mineralGroups[i].length;j++) {
 					if(mineralGroups[i][j] == 0) {
