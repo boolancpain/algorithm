@@ -90,7 +90,7 @@ public class Test4 {
 			return answer;
 		}
 		
-		public int[] gookSolution(int[] progresses, int[] speeds) {
+		public int[] goodSolution(int[] progresses, int[] speeds) {
 			Queue<Integer> q = new LinkedList<>();
 			List<Integer> answerList = new ArrayList<>();
 			
